@@ -51,7 +51,7 @@ for obj in examples:
     if obj['status']=='inqueue':
         Ans_want=model.predict([obj['text']])
         print(Ans_want[0])
-        review.update_one({'text':obj['text']},{"$set":Ans_want[0]})
+        review.update_one({'text':obj['text']},{'$set':{'status':Ans_want[0]}})
 
 
 
